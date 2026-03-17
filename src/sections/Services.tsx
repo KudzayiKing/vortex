@@ -1,6 +1,5 @@
 import { useEffect, useRef, useMemo } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { 
@@ -12,8 +11,6 @@ import {
   Sparkles,
   Wand2
 } from 'lucide-react';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
@@ -48,10 +45,10 @@ const services = [
   },
 ];
 
-// Vortex Particle System
-const VortexParticles = () => {
+// Particle System - Optimized for performance
+const ParticleSystem = () => {
   const pointsRef = useRef<THREE.Points>(null);
-  const particleCount = 2000;
+  const particleCount = 800; // Reduced from 2000 for better performance
 
   const [positions, colors] = useMemo(() => {
     const posArray = new Float32Array(particleCount * 3);
@@ -83,16 +80,8 @@ const VortexParticles = () => {
   useFrame((state) => {
     if (!pointsRef.current) return;
     
-    const time = state.clock.getElapsedTime();
-    pointsRef.current.rotation.y = time * 0.05;
-    
-    // Add subtle wave motion
-    const posArray = pointsRef.current.geometry.attributes.position.array as Float32Array;
-    for (let i = 0; i < particleCount; i++) {
-      const i3 = i * 3;
-      posArray[i3 + 1] += Math.sin(time * 2 + i * 0.1) * 0.002;
-    }
-    pointsRef.current.geometry.attributes.position.needsUpdate = true;
+    // Use simple rotation only - much more performant than updating positions
+    pointsRef.current.rotation.y = state.clock.getElapsedTime() * 0.05;
   });
 
   return (
@@ -108,10 +97,10 @@ const VortexParticles = () => {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.03}
+        size={0.05}
         vertexColors
         transparent
-        opacity={0.8}
+        opacity={0.6}
         sizeAttenuation
         blending={THREE.AdditiveBlending}
       />
@@ -175,15 +164,15 @@ const Services = () => {
       className="section-flowing bg-void py-24 md:py-32 relative overflow-hidden"
       style={{ zIndex: 25 }}
     >
-      {/* 3D Vortex Background */}
+      {/* Particle Background */}
       <div className="absolute inset-0 opacity-60">
         <Canvas
           camera={{ position: [0, 0, 12], fov: 60 }}
-          dpr={[1, 2]}
-          gl={{ antialias: true, alpha: true }}
+          dpr={[1, 1.5]}
+          gl={{ antialias: false, alpha: true, powerPreference: 'high-performance' }}
         >
           <ambientLight intensity={0.5} />
-          <VortexParticles />
+          <ParticleSystem />
         </Canvas>
       </div>
 

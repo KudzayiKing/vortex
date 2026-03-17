@@ -1,9 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Play, Volume2, VolumeX } from 'lucide-react';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -25,11 +22,10 @@ const Hero = () => {
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: '+=150%',
+          end: '+=100%',
           pin: true,
-          scrub: true,
+          scrub: 0.5,
           anticipatePin: 1,
-          fastScrollEnd: true,
           onLeaveBack: () => {
             // Reset when scrolling back to top
             gsap.set(mask, { scale: 1, opacity: 1 });
@@ -130,11 +126,11 @@ const Hero = () => {
         style={{ willChange: 'transform, opacity' }}
       >
         <div className="text-center">
-          <h1 className="font-display text-6xl md:text-8xl lg:text-9xl text-white tracking-[0.2em] text-glow-purple">
-            VORTEX
+          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl text-white tracking-[0.2em] text-glow-purple">
+            RESPECTABLE
           </h1>
-          <p className="mt-4 text-sm md:text-base text-white/60 tracking-[0.5em] uppercase">
-            Studios
+          <p className="mt-2 text-sm md:text-base text-white/60 tracking-[0.5em] uppercase">
+            HOUSE
           </p>
         </div>
       </div>

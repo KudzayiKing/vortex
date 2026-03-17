@@ -1,9 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, Play } from 'lucide-react';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
@@ -58,11 +55,10 @@ const Work = () => {
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: `+=${totalWidth * 1.5}`,
+          end: `+=${totalWidth}`,
           pin: true,
-          scrub: true,
+          scrub: 0.5,
           anticipatePin: 1,
-          fastScrollEnd: true,
           invalidateOnRefresh: true,
         },
       });

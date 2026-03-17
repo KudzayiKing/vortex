@@ -88,8 +88,8 @@ const LoadingScreen = () => {
       </div>
 
       {/* Brand Name */}
-      <h1 className="font-display text-4xl tracking-[0.3em] text-white mb-4">
-        VORTEX
+      <h1 className="font-display text-3xl tracking-[0.3em] text-white mb-4">
+        RESPECTABLE HOUSE
       </h1>
 
       {/* Progress Bar */}

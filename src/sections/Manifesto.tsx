@@ -1,8 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const manifestoLines = [
   { text: 'WE CRAFT', align: 'left' },
@@ -28,11 +25,10 @@ const Manifesto = () => {
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: '+=200%',
+          end: '+=100%',
           pin: true,
-          scrub: true,
+          scrub: 0.5,
           anticipatePin: 1,
-          fastScrollEnd: true,
         },
       });
 

@@ -308,7 +308,7 @@ const Contact = () => {
                   <path d="M12 6v6l4 2" />
                 </svg>
               </div>
-              <span className="font-display text-xl tracking-wider text-white">VORTEX</span>
+              <span className="font-display text-xl tracking-wider text-white">RESPECTABLE HOUSE</span>
             </div>
 
             {/* Links */}
@@ -320,7 +320,7 @@ const Contact = () => {
 
             {/* Copyright */}
             <p className="text-sm text-white/30">
-              &copy; {new Date().getFullYear()} Vortex Studios. All rights reserved.
+              &copy; {new Date().getFullYear()} Respectable House. All rights reserved.
             </p>
           </div>
         </div>

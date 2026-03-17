@@ -13,6 +13,7 @@ import Navigation from './components/Navigation';
 import CustomCursor from './components/CustomCursor';
 import LoadingScreen from './components/LoadingScreen';
 
+// Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -20,27 +21,35 @@ function App() {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Initialize Lenis smooth scroll
+    // Initialize Lenis smooth scroll with optimized settings
     const lenis = new Lenis({
-      duration: 0.6,
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.8,
+      wheelMultiplier: 1,
       touchMultiplier: 2,
       infinite: false,
     });
 
     lenisRef.current = lenis;
 
-    // Connect Lenis to GSAP ScrollTrigger
+    // Connect Lenis to GSAP ScrollTrigger using GSAP's ticker
+    // This is the proper way to integrate Lenis with GSAP
     lenis.on('scroll', ScrollTrigger.update);
 
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });
 
+    // Configure GSAP for smooth performance
     gsap.ticker.lagSmoothing(0);
+    gsap.ticker.fps(60);
+
+    // Configure ScrollTrigger with optimized settings
+    ScrollTrigger.defaults({
+      toggleActions: 'play none none reverse',
+    });
 
     // Refresh ScrollTrigger after everything loads
     const timeout = setTimeout(() => {
@@ -49,10 +58,8 @@ function App() {
 
     return () => {
       clearTimeout(timeout);
+      gsap.ticker.remove((time) => lenis.raf(time * 1000));
       lenis.destroy();
-      gsap.ticker.remove((time) => {
-        lenis.raf(time * 1000);
-      });
     };
   }, []);
 

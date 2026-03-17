@@ -82,7 +82,7 @@ const Navigation = () => {
               </svg>
             </div>
             <span className="font-display text-xl tracking-wider text-white hidden sm:block">
-              VORTEX
+              RESPECTABLE HOUSE
             </span>
           </a>
 
