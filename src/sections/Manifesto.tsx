@@ -87,7 +87,7 @@ const Manifesto = () => {
       {/* Content */}
       <div
         ref={containerRef}
-        className="relative w-full max-w-7xl px-6"
+        className="relative w-full max-w-7xl px-6 pt-20"
         style={{ willChange: 'transform, opacity' }}
       >
         <div className="flex flex-col gap-2 md:gap-4">
@@ -126,7 +126,7 @@ const Manifesto = () => {
       </div>
 
       {/* Bottom Stats */}
-      <div className="absolute bottom-20 left-0 right-0 flex justify-center gap-16 md:gap-32">
+      <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-16 md:gap-32 py-8">
         {[
           { value: '150+', label: 'Projects' },
           { value: '50+', label: 'Clients' },

@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 
 import Hero from './sections/Hero';
-import Manifesto from './sections/Manifesto';
 import Work from './sections/Work';
 import Services from './sections/Services';
 import Clients from './sections/Clients';
@@ -62,7 +61,6 @@ function App() {
       
       <main className="relative">
         <Hero />
-        <Manifesto />
         <Work />
         <Services />
         <Clients />

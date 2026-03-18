@@ -3,7 +3,6 @@ import { Play, Volume2, VolumeX } from 'lucide-react';
 
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const maskRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -78,7 +77,7 @@ const Hero = () => {
       style={{ zIndex: 10 }}
     >
       {/* Background Video */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0">
         <video
           ref={videoRef}
           autoPlay
@@ -95,29 +94,6 @@ const Hero = () => {
         </video>
         {/* Video overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-void/60 via-transparent to-void/80" />
-      </div>
-
-      {/* Aperture Mask */}
-      <div
-        ref={maskRef}
-        className="absolute inset-0 flex items-center justify-center pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle at center, transparent 150px, #050505 150px)',
-          willChange: 'transform, opacity',
-        }}
-      >
-        {/* Aperture blades decoration */}
-        <div className="absolute w-[300px] h-[300px] animate-spin-slow opacity-30">
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute top-1/2 left-1/2 w-1 h-20 bg-gradient-to-b from-purple to-transparent origin-bottom"
-              style={{
-                transform: `translate(-50%, -100%) rotate(${i * 45}deg)`,
-              }}
-            />
-          ))}
-        </div>
       </div>
 
       {/* Center Logo */}
@@ -150,17 +126,17 @@ const Hero = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 mb-16">
           <a
             href="#work"
-            className="magnetic-btn group flex items-center gap-3 px-8 py-4 rounded-full glass border-gradient text-white font-medium hover:scale-105 transition-transform duration-300"
+            className="group flex items-center gap-3 px-8 py-4 rounded-full glass text-white font-medium hover:scale-105 transition-transform duration-300"
           >
             <Play size={18} className="text-cyan group-hover:scale-110 transition-transform" />
             <span>View Showreel</span>
           </a>
           <a
             href="#contact"
-            className="magnetic-btn px-8 py-4 rounded-full border border-white/20 text-white font-medium hover:bg-white/10 transition-colors duration-300"
+            className="px-8 py-4 rounded-full glass text-white font-medium hover:bg-white/10 transition-colors duration-300"
           >
             Get in Touch
           </a>

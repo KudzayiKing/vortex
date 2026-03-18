@@ -40,13 +40,13 @@ const Work = () => {
 
   const scrollLeft = () => {
     if (trackRef.current) {
-      trackRef.current.scrollBy({ left: -400, behavior: 'smooth' });
+      trackRef.current.scrollBy({ left: -500, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (trackRef.current) {
-      trackRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+      trackRef.current.scrollBy({ left: 500, behavior: 'smooth' });
     }
   };
 
@@ -116,7 +116,7 @@ const Work = () => {
     <section
       ref={sectionRef}
       id="work"
-      className="section-pinned bg-void overflow-hidden"
+      className="bg-void overflow-hidden py-24 md:py-32"
       style={{ zIndex: 30 }}
     >
       {/* Background */}
@@ -128,8 +128,7 @@ const Work = () => {
       {/* Heading */}
       <div
         ref={headingRef}
-        className="absolute top-8 left-6 lg:left-12 z-10"
-        style={{ willChange: 'transform, opacity' }}
+        className="px-6 lg:px-12 mb-8"
       >
         <span className="text-xs text-cyan tracking-widest uppercase mb-2 block">
           Portfolio
@@ -142,17 +141,13 @@ const Work = () => {
       {/* Horizontal Track */}
       <div
         ref={trackRef}
-        className="absolute top-0 left-0 h-full flex items-center gap-8 px-6 lg:px-12 pt-24"
-        style={{ willChange: 'transform' }}
+        className="flex items-center gap-8 px-6 lg:px-12 overflow-x-auto scroll-smooth pb-8"
       >
-        {/* Spacer for heading */}
-        <div className="w-[20vw] shrink-0" />
-
         {/* Project Cards */}
         {projects.map((project, index) => (
           <div
             key={project.id}
-            className="work-card relative shrink-0 w-[70vw] md:w-[50vw] lg:w-[40vw] h-[60vh] group cursor-pointer"
+            className="work-card relative shrink-0 w-[80vw] md:w-[60vw] lg:w-[45vw] h-[50vh] md:h-[60vh] group cursor-pointer"
             data-cursor-hover
           >
             {/* Card Background */}
@@ -208,7 +203,7 @@ const Work = () => {
         ))}
 
         {/* View All Card */}
-        <div className="shrink-0 w-[40vw] md:w-[30vw] h-[60vh] flex items-center justify-center">
+        <div className="shrink-0 w-[50vw] md:w-[35vw] h-[50vh] md:h-[60vh] flex items-center justify-center">
           <a
             href="#contact"
             className="group flex flex-col items-center gap-6 p-12 rounded-2xl glass hover:bg-white/5 transition-colors duration-300"
