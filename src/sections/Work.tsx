@@ -1,5 +1,4 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import { useRef } from 'react';
 import { ArrowUpRight, Play } from 'lucide-react';
 
 const projects = [
@@ -39,6 +38,8 @@ const Work = () => {
   const headingRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
 
+  // GSAP animations disabled for testing
+  /*
   useEffect(() => {
     const section = sectionRef.current;
     const track = trackRef.current;
@@ -97,6 +98,7 @@ const Work = () => {
 
     return () => ctx.revert();
   }, []);
+  */
 
   return (
     <section

@@ -1,5 +1,4 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import { useRef } from 'react';
 
 // Client logos as text-based representations
 const clients = [
@@ -22,6 +21,8 @@ const Clients = () => {
   const headingRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
 
+  // GSAP animations disabled for testing
+  /*
   useEffect(() => {
     const section = sectionRef.current;
     const heading = headingRef.current;
@@ -47,6 +48,7 @@ const Clients = () => {
 
     return () => ctx.revert();
   }, []);
+  */
 
   return (
     <section

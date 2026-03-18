@@ -1,5 +1,4 @@
-import { useEffect, useRef, useMemo } from 'react';
-import { gsap } from 'gsap';
+import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { 
@@ -113,6 +112,8 @@ const Services = () => {
   const headingRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  // GSAP animations disabled for testing
+  /*
   useEffect(() => {
     const section = sectionRef.current;
     const heading = headingRef.current;
@@ -156,6 +157,7 @@ const Services = () => {
 
     return () => ctx.revert();
   }, []);
+  */
 
   return (
     <section

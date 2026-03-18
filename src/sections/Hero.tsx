@@ -1,5 +1,4 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import { useRef } from 'react';
 import { Play, Volume2, VolumeX } from 'lucide-react';
 
 const Hero = () => {
@@ -9,6 +8,8 @@ const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
+  // GSAP animations disabled for testing
+  /*
   useEffect(() => {
     const section = sectionRef.current;
     const mask = maskRef.current;
@@ -61,6 +62,7 @@ const Hero = () => {
 
     return () => ctx.revert();
   }, []);
+  */
 
   const toggleMute = () => {
     if (videoRef.current) {

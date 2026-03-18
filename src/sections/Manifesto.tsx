@@ -1,5 +1,4 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import { useRef } from 'react';
 
 const manifestoLines = [
   { text: 'WE CRAFT', align: 'left' },
@@ -13,6 +12,8 @@ const Manifesto = () => {
   const linesRef = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // GSAP animations disabled for testing
+  /*
   useEffect(() => {
     const section = sectionRef.current;
     const container = containerRef.current;
@@ -56,6 +57,7 @@ const Manifesto = () => {
 
     return () => ctx.revert();
   }, []);
+  */
 
   return (
     <section

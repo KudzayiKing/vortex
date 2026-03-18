@@ -1,7 +1,4 @@
 import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Lenis from '@studio-freight/lenis';
 
 import Hero from './sections/Hero';
 import Manifesto from './sections/Manifesto';
@@ -13,15 +10,15 @@ import Navigation from './components/Navigation';
 import CustomCursor from './components/CustomCursor';
 import LoadingScreen from './components/LoadingScreen';
 
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger);
+// GSAP plugins registration - disabled for testing
+// gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const mainRef = useRef<HTMLDivElement>(null);
-  const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Initialize Lenis smooth scroll with optimized settings
+    // GSAP disabled for testing - uncomment to enable smooth scroll
+    /*
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -32,26 +29,19 @@ function App() {
       infinite: false,
     });
 
-    lenisRef.current = lenis;
-
-    // Connect Lenis to GSAP ScrollTrigger using GSAP's ticker
-    // This is the proper way to integrate Lenis with GSAP
     lenis.on('scroll', ScrollTrigger.update);
 
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });
 
-    // Configure GSAP for smooth performance
     gsap.ticker.lagSmoothing(0);
     gsap.ticker.fps(60);
 
-    // Configure ScrollTrigger with optimized settings
     ScrollTrigger.defaults({
       toggleActions: 'play none none reverse',
     });
 
-    // Refresh ScrollTrigger after everything loads
     const timeout = setTimeout(() => {
       ScrollTrigger.refresh();
     }, 100);
@@ -61,6 +51,7 @@ function App() {
       gsap.ticker.remove((time) => lenis.raf(time * 1000));
       lenis.destroy();
     };
+    */
   }, []);
 
   return (
