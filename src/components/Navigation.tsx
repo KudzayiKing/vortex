@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Clapperboard } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,17 +69,8 @@ const Navigation = () => {
             onClick={(e) => handleLinkClick(e, '#hero')}
             className="flex items-center gap-2 group"
           >
-            <div className="w-10 h-10 rounded-full border-2 border-purple flex items-center justify-center group-hover:border-cyan transition-colors duration-300">
-              <svg
-                viewBox="0 0 24 24"
-                className="w-5 h-5 text-purple group-hover:text-cyan transition-colors duration-300"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-                <path d="M12 6v6l4 2" />
-              </svg>
+            <div className="w-10 h-10 rounded-lg bg-purple/20 flex items-center justify-center group-hover:bg-purple/40 transition-colors duration-300">
+              <Clapperboard size={22} className="text-purple group-hover:text-cyan transition-colors duration-300" />
             </div>
             <span className="font-display text-xl tracking-wider text-white hidden sm:block">
               RESPECTABLE HOUSE

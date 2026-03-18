@@ -1,4 +1,9 @@
 import { useEffect, useRef } from 'react';
+import Lenis from 'lenis';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 import Hero from './sections/Hero';
 import Work from './sections/Work';
@@ -16,11 +21,9 @@ function App() {
   const mainRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // GSAP disabled for testing - uncomment to enable smooth scroll
-    /*
     const lenis = new Lenis({
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1,
@@ -50,7 +53,6 @@ function App() {
       gsap.ticker.remove((time) => lenis.raf(time * 1000));
       lenis.destroy();
     };
-    */
   }, []);
 
   return (
@@ -61,6 +63,14 @@ function App() {
       
       <main className="relative">
         <Hero />
+        <div className="px-6 lg:px-12 mb-2 text-center mt-[100px]">
+          <span className="text-xs text-cyan tracking-widest uppercase mb-4 block">
+            Portfolio
+          </span>
+          <h2 className="font-display text-5xl md:text-7xl text-white">
+            SELECTED <span className="gradient-text">WORKS</span>
+          </h2>
+        </div>
         <Work />
         <Services />
         <Clients />

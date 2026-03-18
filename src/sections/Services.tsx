@@ -8,7 +8,8 @@ import {
   Palette, 
   Sparkles,
   Wand2,
-  Brain
+  Brain,
+  Video
 } from 'lucide-react';
 
 const services = [
@@ -23,14 +24,14 @@ const services = [
     description: 'Cutting-edge artificial intelligence solutions for content creation and visual effects.',
   },
   {
+    icon: Video,
+    title: 'Live Concert Coverage',
+    description: 'Multi-camera professional coverage of live concerts and events, capturing every moment from every angle.',
+  },
+  {
     icon: Clapperboard,
     title: 'Commercial Production',
     description: 'High-impact commercials that capture attention and drive results. From concept to final cut.',
-  },
-  {
-    icon: Film,
-    title: 'Brand Films',
-    description: 'Cinematic storytelling that brings your brand identity to life with emotional resonance.',
   },
   {
     icon: Palette,

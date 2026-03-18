@@ -33,90 +33,24 @@ const projects = [
 ];
 
 const Work = () => {
-  const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const headingRef = useRef<HTMLDivElement>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
     if (trackRef.current) {
-      trackRef.current.scrollBy({ left: -500, behavior: 'smooth' });
+      trackRef.current.scrollBy({ left: -400, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (trackRef.current) {
-      trackRef.current.scrollBy({ left: 500, behavior: 'smooth' });
+      trackRef.current.scrollBy({ left: 400, behavior: 'smooth' });
     }
   };
 
-  // GSAP animations disabled for testing
-  /*
-  useEffect(() => {
-    const section = sectionRef.current;
-    const track = trackRef.current;
-    const heading = headingRef.current;
-    const progress = progressRef.current;
-    if (!section || !track || !heading || !progress) return;
-
-    const ctx = gsap.context(() => {
-      // Calculate total scroll distance
-      const totalWidth = track.scrollWidth - window.innerWidth;
-
-      // Create pinned timeline for horizontal scroll
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: `+=${totalWidth}`,
-          pin: true,
-          scrub: 0.5,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      // Heading entrance
-      tl.fromTo(
-        heading,
-        { y: -50, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'power2.out' },
-        0
-      );
-
-      // Horizontal scroll
-      tl.fromTo(
-        track,
-        { x: 0 },
-        { x: -totalWidth, ease: 'none' },
-        0.1
-      );
-
-      // Progress bar
-      tl.fromTo(
-        progress,
-        { scaleX: 0 },
-        { scaleX: 1, ease: 'none' },
-        0.1
-      );
-
-      // Heading exit
-      tl.to(
-        heading,
-        { y: -50, opacity: 0, ease: 'power2.in' },
-        0.9
-      );
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
-  */
-
   return (
     <section
-      ref={sectionRef}
       id="work"
-      className="bg-void overflow-hidden py-24 md:py-32"
+      className="bg-void pt-20 pb-12 md:pt-28 md:pb-16 relative"
       style={{ zIndex: 30 }}
     >
       {/* Background */}
@@ -126,10 +60,7 @@ const Work = () => {
       </div>
 
       {/* Heading */}
-      <div
-        ref={headingRef}
-        className="px-6 lg:px-12 mb-8"
-      >
+      <div className="px-6 lg:px-12 mb-8">
         <span className="text-xs text-cyan tracking-widest uppercase mb-2 block">
           Portfolio
         </span>
@@ -138,17 +69,35 @@ const Work = () => {
         </h2>
       </div>
 
+      {/* Scroll Buttons - Left */}
+      <button
+        onClick={scrollLeft}
+        className="absolute left-2 md:left-4 top-[60%] -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full glass flex items-center justify-center text-white hover:bg-purple/50 transition-colors duration-300"
+        aria-label="Scroll left"
+      >
+        <ChevronLeft size={20} />
+      </button>
+
+      {/* Scroll Buttons - Right */}
+      <button
+        onClick={scrollRight}
+        className="absolute right-2 md:right-4 top-[60%] -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full glass flex items-center justify-center text-white hover:bg-purple/50 transition-colors duration-300"
+        aria-label="Scroll right"
+      >
+        <ChevronRight size={20} />
+      </button>
+
       {/* Horizontal Track */}
       <div
         ref={trackRef}
-        className="flex items-center gap-8 px-6 lg:px-12 overflow-x-auto scroll-smooth pb-8"
+        className="flex items-center gap-4 md:gap-6 px-6 md:px-12 overflow-x-auto scroll-smooth pb-4"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {/* Project Cards */}
         {projects.map((project, index) => (
           <div
             key={project.id}
-            className="work-card relative shrink-0 w-[80vw] md:w-[60vw] lg:w-[45vw] h-[50vh] md:h-[60vh] group cursor-pointer"
-            data-cursor-hover
+            className="work-card relative shrink-0 w-[320px] md:w-[450px] lg:w-[550px] h-[350px] md:h-[450px] group cursor-pointer"
           >
             {/* Card Background */}
             <div className="absolute inset-0 rounded-2xl overflow-hidden glass">
@@ -164,28 +113,28 @@ const Work = () => {
               </div>
 
               {/* Content */}
-              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
+              <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-between">
                 {/* Top */}
                 <div className="flex justify-between items-start">
-                  <span className="px-3 py-1 rounded-full glass text-xs text-white/70">
+                  <span className="px-2 py-1 rounded-full glass text-xs text-white/70">
                     {project.category}
                   </span>
-                  <span className="text-sm text-white/50">{project.year}</span>
+                  <span className="text-xs text-white/50">{project.year}</span>
                 </div>
 
                 {/* Bottom */}
                 <div>
-                  <h3 className="font-display text-3xl md:text-4xl text-white mb-4 group-hover:text-cyan transition-colors duration-300">
+                  <h3 className="font-display text-xl md:text-2xl text-white mb-2 md:mb-4 group-hover:text-cyan transition-colors duration-300">
                     {project.title}
                   </h3>
                   
                   {/* Play Button */}
-                  <div className="flex items-center gap-4">
-                    <button className="w-14 h-14 rounded-full glass flex items-center justify-center text-white group-hover:bg-purple group-hover:border-purple transition-all duration-300">
-                      <Play size={24} className="ml-1" />
+                  <div className="flex items-center gap-2 md:gap-4">
+                    <button className="w-10 h-10 md:w-14 md:h-14 rounded-full glass flex items-center justify-center text-white group-hover:bg-purple group-hover:border-purple transition-all duration-300">
+                      <Play size={16} className="ml-0.5 md:ml-1" />
                     </button>
-                    <span className="text-sm text-white/60 group-hover:text-white transition-colors duration-300">
-                      Watch Project
+                    <span className="text-xs md:text-sm text-white/60 group-hover:text-white transition-colors duration-300">
+                      Watch
                     </span>
                   </div>
                 </div>
@@ -196,60 +145,35 @@ const Work = () => {
             </div>
 
             {/* Index Number */}
-            <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full glass-strong flex items-center justify-center">
-              <span className="font-display text-lg text-cyan">0{index + 1}</span>
+            <div className="absolute top-3 right-3 w-8 h-8 md:w-10 md:h-10 rounded-full glass-strong flex items-center justify-center">
+              <span className="font-display text-sm md:text-lg text-cyan">{index + 1}</span>
             </div>
           </div>
         ))}
 
         {/* View All Card */}
-        <div className="shrink-0 w-[50vw] md:w-[35vw] h-[50vh] md:h-[60vh] flex items-center justify-center">
+        <div className="shrink-0 w-[200px] md:w-[300px] h-[300px] md:h-[400px] flex items-center justify-center">
           <a
             href="#contact"
-            className="group flex flex-col items-center gap-6 p-12 rounded-2xl glass hover:bg-white/5 transition-colors duration-300"
+            className="group flex flex-col items-center gap-4 md:gap-6 p-8 md:p-12 rounded-2xl glass hover:bg-white/5 transition-colors duration-300"
           >
-            <div className="w-20 h-20 rounded-full border-2 border-purple flex items-center justify-center group-hover:bg-purple group-hover:border-cyan transition-all duration-300">
-              <ArrowUpRight size={32} className="text-white" />
+            <div className="w-14 h-14 md:w-20 md:h-20 rounded-full border-2 border-purple flex items-center justify-center group-hover:bg-purple group-hover:border-cyan transition-all duration-300">
+              <ArrowUpRight size={24} className="text-white" />
             </div>
             <div className="text-center">
-              <h3 className="font-display text-2xl text-white mb-2">View All Projects</h3>
-              <p className="text-sm text-white/50">150+ Projects</p>
+              <h3 className="font-display text-lg md:text-xl text-white mb-1 md:mb-2">View All</h3>
+              <p className="text-xs md:text-sm text-white/50">150+ Projects</p>
             </div>
           </a>
         </div>
 
         {/* End Spacer */}
-        <div className="w-[10vw] shrink-0" />
-      </div>
-
-      {/* Scroll Buttons */}
-      <button
-        onClick={scrollLeft}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full glass flex items-center justify-center text-white hover:bg-purple/50 transition-colors duration-300"
-        aria-label="Scroll left"
-      >
-        <ChevronLeft size={24} />
-      </button>
-      <button
-        onClick={scrollRight}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full glass flex items-center justify-center text-white hover:bg-purple/50 transition-colors duration-300"
-        aria-label="Scroll right"
-      >
-        <ChevronRight size={24} />
-      </button>
-
-      {/* Progress Bar */}
-      <div className="absolute bottom-8 left-6 right-6 lg:left-12 lg:right-12 h-0.5 bg-white/10 rounded-full overflow-hidden">
-        <div
-          ref={progressRef}
-          className="h-full bg-gradient-to-r from-purple to-cyan rounded-full origin-left"
-          style={{ willChange: 'transform' }}
-        />
+        <div className="w-4 md:w-8 shrink-0" />
       </div>
 
       {/* Scroll Hint */}
-      <div className="absolute bottom-8 right-6 lg:right-12 text-xs text-white/40 tracking-widest uppercase">
-        Scroll to explore
+      <div className="mt-6 text-center text-xs text-white/40 tracking-widest uppercase">
+        Use arrows to navigate
       </div>
     </section>
   );

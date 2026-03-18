@@ -159,10 +159,10 @@ const Hero = () => {
       </div>
 
       {/* Corner Decorations */}
-      <div className="absolute top-8 left-8 w-20 h-20 border-l-2 border-t-2 border-purple/30" />
-      <div className="absolute top-8 right-8 w-20 h-20 border-r-2 border-t-2 border-purple/30" />
-      <div className="absolute bottom-8 left-8 w-20 h-20 border-l-2 border-b-2 border-cyan/30" />
-      <div className="absolute bottom-8 right-8 w-20 h-20 border-r-2 border-b-2 border-cyan/30" />
+      <div className="absolute top-2 left-8 w-20 h-20 border-l-2 border-t-2 border-purple/30" />
+      <div className="absolute top-2 right-8 w-20 h-20 border-r-2 border-t-2 border-purple/30" />
+      <div className="absolute bottom-12 left-8 w-20 h-20 border-l-2 border-b-2 border-cyan/30" />
+      <div className="absolute bottom-12 right-8 w-20 h-20 border-r-2 border-b-2 border-cyan/30" />
     </section>
   );
 };
