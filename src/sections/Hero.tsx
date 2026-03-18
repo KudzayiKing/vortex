@@ -126,17 +126,17 @@ const Hero = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex items-center gap-4 mb-16">
+        <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
           <a
             href="#work"
-            className="group flex items-center gap-3 px-8 py-4 rounded-full glass text-white font-medium hover:scale-105 transition-transform duration-300"
+            className="group flex items-center justify-center gap-3 px-8 py-4 rounded-full glass text-white font-medium hover:scale-105 transition-transform duration-300 whitespace-nowrap w-full sm:w-auto"
           >
-            <Play size={18} className="text-cyan group-hover:scale-110 transition-transform" />
+            <Play size={18} className="text-cyan group-hover:scale-110 transition-transform flex-shrink-0" />
             <span>View Showreel</span>
           </a>
           <a
             href="#contact"
-            className="px-8 py-4 rounded-full glass text-white font-medium hover:bg-white/10 transition-colors duration-300"
+            className="px-8 py-4 rounded-full glass text-white font-medium hover:bg-white/10 transition-colors duration-300 whitespace-nowrap w-full sm:w-auto text-center"
           >
             Get in Touch
           </a>
@@ -157,12 +157,6 @@ const Hero = () => {
           <div className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent" />
         </div>
       </div>
-
-      {/* Corner Decorations */}
-      <div className="absolute top-2 left-8 w-20 h-20 border-l-2 border-t-2 border-purple/30" />
-      <div className="absolute top-2 right-8 w-20 h-20 border-r-2 border-t-2 border-purple/30" />
-      <div className="absolute bottom-12 left-8 w-20 h-20 border-l-2 border-b-2 border-cyan/30" />
-      <div className="absolute bottom-12 right-8 w-20 h-20 border-r-2 border-b-2 border-cyan/30" />
     </section>
   );
 };

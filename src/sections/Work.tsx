@@ -50,7 +50,7 @@ const Work = () => {
   return (
     <section
       id="work"
-      className="bg-void pt-20 pb-12 md:pt-28 md:pb-16 relative"
+      className="bg-void pt-8 pb-6 md:pt-12 md:pb-8 relative"
       style={{ zIndex: 30 }}
     >
       {/* Background */}
@@ -60,7 +60,7 @@ const Work = () => {
       </div>
 
       {/* Heading */}
-      <div className="px-6 lg:px-12 mb-8">
+      <div className="px-6 lg:px-12 mb-2">
         <span className="text-xs text-cyan tracking-widest uppercase mb-2 block">
           Portfolio
         </span>
@@ -97,7 +97,7 @@ const Work = () => {
         {projects.map((project, index) => (
           <div
             key={project.id}
-            className="work-card relative shrink-0 w-[320px] md:w-[450px] lg:w-[550px] h-[350px] md:h-[450px] group cursor-pointer"
+            className="work-card relative shrink-0 w-[280px] md:w-[400px] lg:w-[500px] h-[220px] md:h-[300px] lg:h-[350px] group cursor-pointer"
           >
             {/* Card Background */}
             <div className="absolute inset-0 rounded-2xl overflow-hidden glass">
@@ -172,7 +172,7 @@ const Work = () => {
       </div>
 
       {/* Scroll Hint */}
-      <div className="mt-6 text-center text-xs text-white/40 tracking-widest uppercase">
+      <div className="mt-2 text-center text-xs text-white/40 tracking-widest uppercase">
         Use arrows to navigate
       </div>
     </section>

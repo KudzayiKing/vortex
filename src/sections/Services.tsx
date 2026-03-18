@@ -228,8 +228,8 @@ const Services = () => {
 
                 {/* Corner Accent */}
                 <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-2xl">
-                  <div className="absolute top-0 right-0 w-px h-12 bg-gradient-to-b from-purple/50 to-transparent transform translate-x-[-1px]" />
-                  <div className="absolute top-0 right-0 h-px w-12 bg-gradient-to-l from-purple/50 to-transparent transform translate-y-[1px]" />
+                  <div className="absolute top-0 right-0 w-px h-12 bg-gradient-to-b from-purple/50 to-transparent transform translate-x-[-1px] md:translate-x-[-1px] -translate-x-7" />
+                  <div className="absolute top-0 right-0 h-px w-12 bg-gradient-to-l from-purple/50 to-transparent transform translate-y-[1px] md:translate-y-[1px] -translate-y-7" />
                 </div>
               </div>
             );
