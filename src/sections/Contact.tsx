@@ -231,7 +231,7 @@ const Contact = () => {
               {[
                 { icon: Mail, label: 'Email', value: 'hello@vortexstudios.com' },
                 { icon: Phone, label: 'Phone', value: '+1 (555) 123-4567' },
-                { icon: MapPin, label: 'Location', value: 'Los Angeles, California' },
+                { icon: MapPin, label: 'Location', value: 'Dubai, UAE' },
               ].map((item, index) => {
                 const Icon = item.icon;
                 return (

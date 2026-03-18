@@ -5,13 +5,23 @@ import {
   Clapperboard, 
   Film, 
   Music, 
-  FileText, 
   Palette, 
   Sparkles,
-  Wand2
+  Wand2,
+  Brain
 } from 'lucide-react';
 
 const services = [
+  {
+    icon: Music,
+    title: 'Music Videos',
+    description: 'Visual experiences that amplify your sound and connect with audiences on a deeper level.',
+  },
+  {
+    icon: Brain,
+    title: 'AI Generated Content',
+    description: 'Cutting-edge artificial intelligence solutions for content creation and visual effects.',
+  },
   {
     icon: Clapperboard,
     title: 'Commercial Production',
@@ -21,16 +31,6 @@ const services = [
     icon: Film,
     title: 'Brand Films',
     description: 'Cinematic storytelling that brings your brand identity to life with emotional resonance.',
-  },
-  {
-    icon: Music,
-    title: 'Music Videos',
-    description: 'Visual experiences that amplify your sound and connect with audiences on a deeper level.',
-  },
-  {
-    icon: FileText,
-    title: 'Documentary',
-    description: 'Authentic narratives that inform, inspire, and leave lasting impressions.',
   },
   {
     icon: Palette,

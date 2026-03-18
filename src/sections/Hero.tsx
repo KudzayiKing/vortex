@@ -85,12 +85,11 @@ const Hero = () => {
           muted
           loop
           playsInline
-          poster="/images/work-1.jpg"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ filter: 'saturate(0.8) contrast(1.1)' }}
         >
           <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-702-large.mp4"
+            src="https://ik.imagekit.io/ojfedrprt/SHOWREEL.mp4"
             type="video/mp4"
           />
         </video>

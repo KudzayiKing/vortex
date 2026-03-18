@@ -64,7 +64,7 @@ const Manifesto = () => {
       ref={sectionRef}
       id="manifesto"
       className="section-pinned bg-void flex items-center justify-center overflow-hidden"
-      style={{ zIndex: 20 }}
+      style={{ zIndex: 20, minHeight: '100vh' }}
     >
       {/* Background Grid */}
       <div className="absolute inset-0 opacity-10">

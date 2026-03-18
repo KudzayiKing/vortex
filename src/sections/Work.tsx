@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { ArrowUpRight, Play } from 'lucide-react';
+import { ArrowUpRight, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const projects = [
   {
@@ -37,6 +37,18 @@ const Work = () => {
   const trackRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (trackRef.current) {
+      trackRef.current.scrollBy({ left: -400, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (trackRef.current) {
+      trackRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+    }
+  };
 
   // GSAP animations disabled for testing
   /*
@@ -214,6 +226,22 @@ const Work = () => {
         {/* End Spacer */}
         <div className="w-[10vw] shrink-0" />
       </div>
+
+      {/* Scroll Buttons */}
+      <button
+        onClick={scrollLeft}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full glass flex items-center justify-center text-white hover:bg-purple/50 transition-colors duration-300"
+        aria-label="Scroll left"
+      >
+        <ChevronLeft size={24} />
+      </button>
+      <button
+        onClick={scrollRight}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full glass flex items-center justify-center text-white hover:bg-purple/50 transition-colors duration-300"
+        aria-label="Scroll right"
+      >
+        <ChevronRight size={24} />
+      </button>
 
       {/* Progress Bar */}
       <div className="absolute bottom-8 left-6 right-6 lg:left-12 lg:right-12 h-0.5 bg-white/10 rounded-full overflow-hidden">
